@@ -56,7 +56,7 @@ const CreateAssignment = () => {
             type="submit"
             className="w-full bg-blue-500 text-white rounded-lg py-2 hover:bg-blue-600 focus:outline-none"
           >
-            Upload Book
+            Upload Assignment
           </button>
           {message && (
             <p className="mt-4 font-semibold text-green-500">{message}</p>

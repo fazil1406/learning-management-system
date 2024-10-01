@@ -1,0 +1,81 @@
+/*name :Mohamed Fazil 
+ Rollno:22CO27
+ Aim:To Perform Selection sort
+
+
+Theory:In selection sort, the first smallest element is selected from the unsorted array and placed at the first position. After that second smallest element is selected and placed in the second position. The process continues until the array is entirely sorted.
+ */
+
+
+
+
+#include<stdio.h>
+
+void swap(int i,int min, int a[]){
+	
+	int temp=a[i];
+	a[i] = a[min];
+	a[min]=temp;
+}
+
+void selectionsort(int a[],int n){
+for(int i=0;i<n-1;i++){
+	int min=i;
+	for(int j=i+1;j<n;j++){
+		if(a[j]<a[min]){
+			min=j;
+		}
+		if(min!=i){
+			swap(i, min, a);
+		}
+	}
+}
+}
+void display(int arr[],int n){
+	
+	for(int i=0;i<n;i++){
+	
+		printf("%d ",
+		arr[i]);
+	}
+	printf("\n");
+}
+
+	
+
+int main(){
+	int n ,array[100];
+	printf("Enter a number: ");
+	scanf("%d",&n);
+	printf("Enter %d elements: ",n);
+	for(int i=0;i<n;i++){
+	scanf("%d",&array[i]);
+}
+	printf("before sorting:");
+	display(array,n);
+	selectionsort(array,n);
+	printf("After sorting;");
+	 display(array,n);
+	 return 0;
+	
+}
+/*output
+  Enter a number: 4
+Enter 4 elements: 2
+5
+9
+7
+before sorting:2 5 9 7 
+After sorting;2 5 7 9
+
+
+Time Complexity:In the selection sort algorithm, the time complexity is O(n2) in all three cases. This is because, in each step, we are required to find minimum elements so that it can be placed in the correct position. Once we trace the complete array, we will get our minimum element.
+
+
+Space Complexity: O(1), as no extra space is required for the Selection sort algorithm.
+
+
+Conclusion:Thus, Selection Sort is a straightforward and intuitive sorting algorithm that operates by repeatedly selecting the smallest (or largest, depending on the order of sorting) element from an unsorted portion and swapping it with the first unsorted element. Keep Learning, Keep Exploring!
+
+*/
+				

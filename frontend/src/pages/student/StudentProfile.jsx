@@ -1,15 +1,17 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const StudentProfile = ({ onLogout }) => {
+const StudentProfile = () => {
   const [isVisible, setIsVisible] = useState(false);
 
+  const navigate = useNavigate();
   const handleLogoutClick = () => {
     setIsVisible(true);
   };
 
   const handleConfirmLogout = () => {
-    onLogout(); // Call the logout function passed as a prop
     setIsVisible(false);
+    navigate(`/`);
   };
 
   const handleCancelLogout = () => {
@@ -27,8 +29,13 @@ const StudentProfile = ({ onLogout }) => {
         <p className="text-gray-600">22co27@aiktc.ac.in</p>
       </div>
 
-      <div className="hover:bg-slate-300 rounded-2xl p-2">
-        <button onClick={handleLogoutClick}>Log out</button>
+      <div>
+        <button
+          className="hover:bg-slate-300 rounded-2xl p-2 w-full"
+          onClick={handleLogoutClick}
+        >
+          Log out
+        </button>
         {isVisible && (
           <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
             <div className="bg-white rounded-lg p-6">
@@ -43,7 +50,7 @@ const StudentProfile = ({ onLogout }) => {
                 </button>
                 <button
                   onClick={handleConfirmLogout}
-                  className="bg-red-500 text-white rounded-lg py-1 px-4"
+                  className="bg-red-500 hover:bg-red-700 text-white rounded-lg py-1 px-4"
                 >
                   Confirm
                 </button>
