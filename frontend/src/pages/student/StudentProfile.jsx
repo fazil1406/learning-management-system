@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -5,9 +6,60 @@ const StudentProfile = ({ email }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   const navigat = useNavigate();
+=======
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+
+const StudentProfile = ({ onLogout, user }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [teacher, setTeacher] = useState({});
+  const [student, setStudent] = useState({});
+  const [error, setError] = useState("");
+  const { id } = useParams();
+>>>>>>> upstream/HEAD
   const handleLogoutClick = () => {
     setIsVisible(true);
   };
+
+  useEffect(() => {
+    if (user === "Teacher") {
+      const fetchTeacher = async () => {
+        try {
+          const response = await fetch(
+            `http://localhost:3001/api/teacher/${id}`
+          );
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+          const data = await response.json();
+          setTeacher(data);
+        } catch (error) {
+          console.error("Error fetching Teachers:", error);
+          setError("Failed to fetch Teachers. Please try again later.");
+        }
+      };
+
+      fetchTeacher();
+    } else if (user === "Student") {
+      const fetchStudent = async () => {
+        try {
+          const response = await fetch(
+            `http://localhost:3001/api/student/${id}`
+          );
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+          const data = await response.json();
+          setStudent(data);
+        } catch (error) {
+          console.error("Error fetching Student:", error);
+          setError("Failed to fetch Student. Please try again later.");
+        }
+      };
+
+      fetchStudent();
+    }
+  }, []);
 
   const handleConfirmLogout = () => {
     setIsVisible(false);
@@ -25,8 +77,17 @@ const StudentProfile = ({ email }) => {
           alt="Profile"
           className="w-24 h-24 rounded-full mb-4"
         />
+<<<<<<< HEAD
         <h1 className="text-xl font-semibold text-gray-600">name</h1>
         <p className="text-gray-600">{email}</p>
+=======
+        <h1 className="text-xl font-semibold text-gray-600">
+          {teacher.teacher?.teacher_name || student.student?.name}
+        </h1>
+        <p className="text-gray-600">
+          {teacher.teacher?.email || student.student?.email}
+        </p>
+>>>>>>> upstream/HEAD
       </div>
 
       <div>
