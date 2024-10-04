@@ -27,15 +27,7 @@ const Login = () => {
         body: JSON.stringify(formData),
       });
 
-<<<<<<< HEAD
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-
-      // const data = await response.json();
-=======
       const data = await response.json();
->>>>>>> upstream/HEAD
 
       if (!response.ok) {
         throw new Error(data.msg || `HTTP error! Status: ${response.status}`);
@@ -47,27 +39,11 @@ const Login = () => {
         localStorage.setItem("token", data.token);
         localStorage.setItem("user", JSON.stringify(data.user));
 
-<<<<<<< HEAD
-        if (data.user.type === "Admin") {
-          navigate(`/admin/${data.user.id}`, {
-            state: { email: formData.email },
-          });
-        } else if (data.user.type === "Teacher") {
-          navigate(`/teacher/${data.user.id}`, {
-            state: { email: formData.email },
-          });
-        } else {
-          navigate(`/student/${data.user.id}`, {
-            state: { email: formData.email },
-          });
-        }
-=======
         // Redirect to the page the user was trying to access, or to their default page
         const from =
           location.state?.from?.pathname ||
           `/${data.user.type.toLowerCase()}/${data.user.id}`;
         navigate(from, { replace: true });
->>>>>>> upstream/HEAD
       }
     } catch (err) {
       console.error("Error during login:", err);
