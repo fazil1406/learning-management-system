@@ -20,7 +20,7 @@ const StudentSidebar = () => {
             </li>
             <li>
               <Link
-                to={`/student/note/${id}`}
+                to={`/student/upload-assignment/${id}`}
                 className="block  p-6 hover:bg-gray-700 rounded-2xl text-xl font-bold"
               >
                 Notes
@@ -28,7 +28,7 @@ const StudentSidebar = () => {
             </li>
             <li>
               <Link
-                to={`/student/studentexperiment/${id}`}
+                to={`/student/assignments/${id}`}
                 className="block p-6 hover:bg-gray-700 rounded-2xl text-xl font-bold"
               >
                 Experiment

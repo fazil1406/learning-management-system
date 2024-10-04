@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const StudentProfile = () => {
+const StudentProfile = ({ email }) => {
   const [isVisible, setIsVisible] = useState(false);
 
-  const navigate = useNavigate();
+  const navigat = useNavigate();
   const handleLogoutClick = () => {
     setIsVisible(true);
   };
 
   const handleConfirmLogout = () => {
     setIsVisible(false);
-    navigate(`/`);
+    navigat(`/`);
   };
 
   const handleCancelLogout = () => {
@@ -25,8 +25,8 @@ const StudentProfile = () => {
           alt="Profile"
           className="w-24 h-24 rounded-full mb-4"
         />
-        <h1 className="text-xl font-semibold text-gray-600">Fazil</h1>
-        <p className="text-gray-600">22co27@aiktc.ac.in</p>
+        <h1 className="text-xl font-semibold text-gray-600">name</h1>
+        <p className="text-gray-600">{email}</p>
       </div>
 
       <div>

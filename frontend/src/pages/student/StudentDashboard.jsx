@@ -12,6 +12,7 @@ const StudentDashboard = () => {
   const handleClick1 = () => {
     navigate(`/student/assignments/${id}`);
   };
+
   return (
     <div>
       <Header user="Student" />

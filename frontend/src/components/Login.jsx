@@ -33,7 +33,7 @@ const Login = () => {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
 
-      const data = await response.json();
+      // const data = await response.json();
 
       if (!data.success) {
         setError(data.msg);
@@ -41,11 +41,17 @@ const Login = () => {
         localStorage.setItem("token", data.token);
 
         if (data.user.type === "Admin") {
-          navigate(`/admin/${data.user.id}`);
+          navigate(`/admin/${data.user.id}`, {
+            state: { email: formData.email },
+          });
         } else if (data.user.type === "Teacher") {
-          navigate(`/teacher/${data.user.id}`);
+          navigate(`/teacher/${data.user.id}`, {
+            state: { email: formData.email },
+          });
         } else {
-          navigate(`/student/${data.user.id}`);
+          navigate(`/student/${data.user.id}`, {
+            state: { email: formData.email },
+          });
         }
       }
     } catch (err) {
@@ -112,5 +118,4 @@ const Login = () => {
     </div>
   );
 };
-
 export default Login;

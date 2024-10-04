@@ -120,7 +120,7 @@ const CreateAssignment = () => {
   };
 
   return (
-    <div className="absolute left-0 right-0 bg-gray-200 h-full">
+    <div className=" left-0 right-0 bg-gray-200 h-full">
       <Header user="Teacher" />
       <div className="max-w-md mx-auto bg-white rounded-lg shadow-md p-6 mt-12">
         <h2 className="text-xl font-semibold mb-4">Upload Assignment</h2>

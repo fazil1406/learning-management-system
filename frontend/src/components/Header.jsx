@@ -29,7 +29,7 @@ const Header = ({ user }) => {
           {isProfileVisible ? "Hide Profile" : "Show Profile"}
         </button>
       </div>
-      <div className="float-right m-3">
+      <div className="fixed right-0 float-right m-3">
         {isProfileVisible && <StudentProfile />}
       </div>
     </>
