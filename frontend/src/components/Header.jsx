@@ -35,15 +35,10 @@ const Header = ({ user }) => {
           {isProfileVisible ? "Hide Profile" : "Show Profile"}
         </button>
       </div>
-<<<<<<< HEAD
-      <div className="fixed right-0 float-right m-3">
-        {isProfileVisible && <StudentProfile />}
-=======
       <div className="float-right m-3">
         {isProfileVisible && (
           <StudentProfile onLogout={handleLogout} user={user} />
         )}
->>>>>>> upstream/HEAD
       </div>
     </>
   );

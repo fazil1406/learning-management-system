@@ -1,22 +1,13 @@
-<<<<<<< HEAD
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-
-const StudentProfile = ({ email }) => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  const navigat = useNavigate();
-=======
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
 const StudentProfile = ({ onLogout, user }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [teacher, setTeacher] = useState({});
   const [student, setStudent] = useState({});
   const [error, setError] = useState("");
   const { id } = useParams();
->>>>>>> upstream/HEAD
+  const navigate = useNavigate();
   const handleLogoutClick = () => {
     setIsVisible(true);
   };
@@ -63,7 +54,8 @@ const StudentProfile = ({ onLogout, user }) => {
 
   const handleConfirmLogout = () => {
     setIsVisible(false);
-    navigat(`/`);
+    localStorage.removeItem("token");
+    navigate(`/`);
   };
 
   const handleCancelLogout = () => {
@@ -77,17 +69,12 @@ const StudentProfile = ({ onLogout, user }) => {
           alt="Profile"
           className="w-24 h-24 rounded-full mb-4"
         />
-<<<<<<< HEAD
-        <h1 className="text-xl font-semibold text-gray-600">name</h1>
-        <p className="text-gray-600">{email}</p>
-=======
         <h1 className="text-xl font-semibold text-gray-600">
           {teacher.teacher?.teacher_name || student.student?.name}
         </h1>
         <p className="text-gray-600">
           {teacher.teacher?.email || student.student?.email}
         </p>
->>>>>>> upstream/HEAD
       </div>
 
       <div>

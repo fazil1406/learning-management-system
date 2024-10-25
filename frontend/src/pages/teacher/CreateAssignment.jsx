@@ -190,7 +190,7 @@ const CreateAssignment = () => {
               htmlFor="due_date"
               className="block text-sm font-medium text-gray-700 mb-2"
             >
-              Due Datea
+              Due Date
             </label>
             <Calendar
               id="due_date"
